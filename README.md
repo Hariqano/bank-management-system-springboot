@@ -1,117 +1,62 @@
-# Bank Management System
-Welcome to the Bank Management System repository built using Spring Boot! This project is designed to provide a foundation for managing banking operations using modern web technologies.
+<div align="center">
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Datavase Schema](#database-schema)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
+# 🏦 Sahab Bank
 
+### Modern Digital Banking System — Built with Spring Boot 3 & PostgreSQL
 
-## Introduction
+[![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.5-brightgreen?style=flat-square&logo=spring&logoColor=white)](https://spring.io/projects/spring-boot)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Maven](https://img.shields.io/badge/Maven-3.9-red?style=flat-square&logo=apache-maven&logoColor=white)](https://maven.apache.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://opensource.org/licenses/MIT)
 
-The Bank Management System is a web-based application developed using Spring Boot that aims to streamline various banking operations. This system offers features to manage customer accounts and perform transactions.
+</div>
 
+---
 
-## Features
+## 📖 Overview
 
-- User-Friendly Web Interface: Enjoy a user-friendly web interface designed for both customers, crafted using Angular. Check out the frontend repository on [GitHub](https://github.com/Mohammed-eid35/bank-management-system-angular).
-- Authentication and Authorization: We prioritize security by implementing robust user authentication and authorization mechanisms, guaranteeing safe and controlled access to the system.
-- Multi-Account Support: Users have the convenience of creating up to three separate accounts within the system, catering to various financial needs and goals.
-- Comprehensive Account Details: Customers can easily access a wealth of information about their accounts, including balance summaries, card numbers, CVV numbers, and more. This empowers users with a clear overview of their financial status.
-- Efficient Transaction Handling: Our system offers well-defined API endpoints that enable seamless fund transfers between accounts. This ensures efficient and accurate transaction processing.
+**Sahab Bank** is a production-grade **RESTful banking API** built with the latest Java ecosystem. It provides secure user authentication, multi-account management, and real-time transaction processing — all backed by a robust PostgreSQL database and documented through interactive Swagger UI.
 
+The project follows industry-standard patterns including **Layered Architecture**, **DTO Pattern**, **Repository Pattern**, and **JWT-based Stateless Authentication**, making it a reference implementation for modern Spring Boot applications.
 
-## Installation
+---
 
-To run the Bank Management System locally, you will need the following:
-- Java 11 or higher
-- Maven
-- PostgreSQL
+## ✨ Features
 
-Once you have the required tools installed, follow these steps to install the Bank Management System:
+- 🔐 **JWT-Based Authentication** — Stateless, secure token-based authentication system
+- 👥 **Role-Based Access Control** — Separate permissions for `CUSTOMER` and `ADMIN`
+- 💳 **Multi-Account Management** — Customers can open multiple bank accounts
+- 💰 **Secure Transactions** — Deposit and withdrawal with full validation
+- 🛡️ **Password Encryption** — BCrypt hashing for all credentials
+- 📊 **Account Statements** — Track balance, card number, CVV, and transaction history
+- 📖 **Auto-Generated API Docs** — Interactive Swagger UI for all endpoints
+- 🏗️ **Clean Architecture** — Separation of concerns across multiple layers
 
-1. Clone this repository:
-    ```shell
-       git clone https://github.com/Mohammed-eid35/bank-management-system-springboot.git
-    ```
-2. Edit the database configurations in application.properties file.
-3. Navigate to the project directory:
-    ```shell
-    cd bank-management-system-springboot
-    ```
-4. Build and run the application using Maven
-    ```shell
-    mvn spring-boot:run
-    ```
-5. Explore the Application: Once the application is up and running, open your web browser and access it at: `http://localhost:8080`
-6. Access API Documentation: Additionally, you can explore the API documentation by navigating to: `http://localhost:8080/swagger-ui.html`. This provides detailed insights into the available API endpoints and functionalities.
+---
 
+## 🛠️ Tech Stack
 
-## Usage
+### Backend
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Java | 21 LTS | Core language |
+| Spring Boot | 3.3.5 | Application framework |
+| Spring Security | 6.x | Authentication & authorization |
+| Spring Data JPA | 3.x | Database abstraction |
+| Hibernate | 6.5.3 | ORM implementation |
+| JJWT | 0.12.6 | JWT token generation/validation |
+| Lombok | 1.18.34 | Boilerplate reduction |
 
-- Customer Actions:
-   - Account Creation: As a customer, you have the privilege of creating multiple accounts tailored to your financial needs.
-   - View Account Details: Easily access comprehensive details about your accounts, empowering you with insights into your balances and transactions.
+### Database
+- **PostgreSQL 16** — Primary relational database
+- **H2** — In-memory database for testing
 
-- Transaction Operations:
-  - Deposit Funds: Any interface can conveniently utilize the `/transaction/deposit` endpoint to securely deposit funds into specified accounts.
-  - Withdraw Funds: Similarly, the `/transaction/withdraw` endpoint is available for withdrawing funds from accounts, ensuring your transactions are seamless and accurate.
+### Documentation & Tools
+- **OpenAPI 3.0 / Swagger UI** — Interactive API documentation
+- **Maven** — Dependency management & build automation
+- **Docker** — Containerization (optional)
 
+---
 
-## Database Schema
-```mermaid
-erDiagram
-    User {
-        SERIAL id PK
-        VARCHAR name
-        VARCHAR password
-        VARCHAR phone "UNIQUE"
-        VARCHAR email "UNIQUE"
-    }
-    
-    Account {
-        SERIAL id PK
-        VARCHAR card_number "UNIQUE"
-        VARCHAR cvv
-        DOUBLE balance
-        SERIAL user_id FK
-    }
-
-    Transaction {
-        SERIAL id PK
-        VARCHAR type
-        DOUBLE amount
-        TEXT notes
-        DATE timestamp
-        SERIAL account_id FK
-    }
-
-    User ||--o{ Account : "has"
-    Account ||--o{ Transaction : "history"
-```
-
-
-## Technologies Used
-- Java
-- Spring Boot
-- Spring Security
-- json web token (JWT)
-- Spring Data JPA
-- Lombok
-- PostgreSQL
-- Maven 
-- Swagger
-- Docker
-
-
-## Contributing
-Contributions to the Bank Management System project are welcome! If you'd like to contribute:
-1. Fork the repository.
-2. Create a new branch for your feature.
-3. Commit your changes.
-4. Push the branch.
-5. Open a Pull Request explaining your changes.
+## 🏗️ Project Structure
